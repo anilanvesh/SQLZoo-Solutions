@@ -1,7 +1,8 @@
 /* Solutions to SQLZoo SELECT from Nobel */
 
 --#1
-/* Change the query shown so that it displays Nobel prizes for 1950. */
+/* Winners from 1950
+Change the query shown so that it displays Nobel prizes for 1950. */
 
 SELECT yr,
 	subject,
@@ -10,7 +11,8 @@ FROM nobel
 WHERE yr = 1950
 
 --#2
-/* Show who won the 1962 prize for literature. */
+/* 1962 Literature
+Show who won the 1962 prize for literature. */
 
 SELECT winner
 FROM nobel
@@ -18,7 +20,8 @@ WHERE yr = 1962
 	AND subject = 'literature'
 
 --#3
-/* Show the year and subject that won 'Albert Einstein' his prize. */
+/* Albert Einstein
+Show the year and subject that won 'Albert Einstein' his prize. */
 
 SELECT yr,
 	subject
@@ -26,7 +29,8 @@ FROM nobel
 WHERE winner = 'Albert Einstein'
 
 --#4
-/* Give the name of the 'peace' winners since the year 2000, including 2000. */
+/* Recent Peace Prizes
+Give the name of the 'peace' winners since the year 2000, including 2000. */
 
 SELECT winner
 FROM nobel
@@ -34,7 +38,8 @@ WHERE yr >= 2000
 	AND subject = 'peace'
 
 --#5
-/* Show all details (yr, subject, winner) of the literature prize winners for 1980 to 1989 inclusive. */
+/* Literature in the 1980's
+Show all details (yr, subject, winner) of the literature prize winners for 1980 to 1989 inclusive. */
 
 SELECT *
 FROM nobel
@@ -43,7 +48,8 @@ WHERE subject = 'literature'
 		AND 1989
 
 --#6
-/* Show all details of the presidential winners:
+/* Only Presidents
+Show all details of the presidential winners:
 
 Theodore Roosevelt
 Thomas Woodrow Wilson
@@ -55,14 +61,16 @@ FROM nobel
 WHERE winner IN ('Theodore Roosevelt', 'Woodrow Wilson', 'Barack Obama', 'Jimmy Carter');
 
 --#7
-/* Show the winners with first name John */
+/* John
+Show the winners with first name John */
 
 SELECT winner
 FROM nobel
 WHERE winner LIKE 'john%'
 
 --#8
-/* Show the year, subject, and name of physics winners for 1980 together with the chemistry winners for 1984. */
+/* Chemistry and Physics from different years
+Show the year, subject, and name of physics winners for 1980 together with the chemistry winners for 1984. */
 
 SELECT yr,
 	subject,
@@ -74,7 +82,8 @@ WHERE (subject = 'physics'
 		AND yr = 1984)
 
 --#9
-/* Show the year, subject, and name of winners for 1980 excluding chemistry and medicine */
+/* Exclude Chemists and Medics
+Show the year, subject, and name of winners for 1980 excluding chemistry and medicine */
 
 SELECT yr,
 	subject,
@@ -84,7 +93,8 @@ WHERE yr = 1980
 	AND subject NOT IN ('chemistry', 'medicine')
 
 --#10
-/* Show year, subject, and name of people who won a 'Medicine' prize in an early year (before 1910, not including 1910) 
+/* Early Medicine, Late Literature
+Show year, subject, and name of people who won a 'Medicine' prize in an early year (before 1910, not including 1910) 
 together with winners of a 'Literature' prize in a later year (after 2004, including 2004) */
 
 SELECT *
@@ -95,21 +105,24 @@ WHERE (subject = 'Medicine'
 		AND yr >= 2004)
 
 --#11
-/* Find all details of the prize won by PETER GRÜNBERG */
+/* Umlaut
+Find all details of the prize won by PETER GRÜNBERG */
 
 SELECT *
 FROM nobel
 WHERE winner LIKE 'peter gr%nberg'
 
 --#12
-/* Find all details of the prize won by EUGENE O'NEILL */
+/* Apostrophe
+Find all details of the prize won by EUGENE O'NEILL */
 
 SELECT *
 FROM nobel
 WHERE winner = 'Eugene O''Neill'
 
 --#13
-/* Knights in order
+/* Knights of the realm
+Knights in order
 
 List the winners, year and subject where the winner starts with Sir. 
 Show the the most recent first, then by name order. */
